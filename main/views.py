@@ -1,11 +1,24 @@
 from django.shortcuts import redirect, render
 from .models import *
 from .forms import *
+from django .contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+
+
+def Logout(request):
+    logout(request)
+    return redirect('login') 
+
 def signup(request):
-    ""
+    form = UserCreationForm()
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid:
+            form.save()
+            return redirect('login') 
+    return render(request, 'signup.html', {'form':form})
 
 def Login(request):
     if request.method == "POST":
@@ -18,7 +31,6 @@ def Login(request):
         else:
             return render(request, 'login.html', {'msg':'Error'})
     return render(request, 'login.html')
-
 
 
 @login_required(login_url='/login')

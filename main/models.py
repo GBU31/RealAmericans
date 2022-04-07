@@ -11,7 +11,7 @@ class profilePic(models.Model):
 
 class post(models.Model):
     user = models.CharField(max_length=100, blank=True)
-    Content = models.CharField(max_length=140)
+    Content = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self) -> str:

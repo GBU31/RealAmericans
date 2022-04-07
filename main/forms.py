@@ -7,7 +7,7 @@ class PostForm(forms.ModelForm):
         model = post
         fields = '__all__'
         widgets = {
-            'Content': forms.Textarea(attrs={'class':'input is-danger is-medium'}),
+            'Content': forms.Textarea(attrs={'class':'input is-danger is-medium', 'placeholder':"what's new?", "style":"height:100px;"}),
         }
         labels = {
             'user': (''),

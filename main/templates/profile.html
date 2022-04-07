@@ -1,16 +1,20 @@
 {%extends "base.html"%}
 
 {%block content%}
-<div class="box" style="height: fit-content;
-width: fit-content;">
-<div class="profile">
+<div class="box">
+    {%if pic|length == 0%}
+    <figure class="image is-128x128">
+      <img src="https://static8.depositphotos.com/1009634/1025/v/950/depositphotos_10255806-stock-illustration-no-user-profile-picture.jpg">
+    </figure>
+    {%endif%}
     {%for j in pic%}
     <figure class="image is-128x128">
       <img src="{{j.pic}}">
     </figure>
-</div>
+    {%endfor%}
+<button class="button is-rounded">Edit</button>
 
-{%endfor%}
+<br>
 <h1 class="title is-2" style="text-align: center; color: #000000;">@{{user}}{%if User in all_ver|safe%}
     
   <svg style="color:#d1433e;" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
