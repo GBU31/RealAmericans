@@ -20,6 +20,11 @@ class CommentForm(forms.ModelForm):
         widgets = {
             'Comment': forms.Textarea(attrs={'class':'post', "style":"height:100px;"}),
         }
+        labels = {
+            'user': (''),
+            'to_pk': (''),
+            'Comment':(''),
+        }
 
 
     

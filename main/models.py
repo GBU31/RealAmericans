@@ -14,6 +14,8 @@ class comment(models.Model):
     date = models.DateTimeField(auto_now_add=True, blank=True)
     def __str__(self) -> str:
         return self.Comment
+    class Meta:
+        ordering = ['-id']
 
 class post(models.Model):
     user = models.CharField(max_length=100, blank=True)
