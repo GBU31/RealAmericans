@@ -5,21 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link href="{%static 'css/login.css'%}" rel="stylesheet">
     <title>Login</title>
 </head>
 <body>
+    
+    <style>
+        .box {
+            width: fit-content;
+            margin: auto;
+        }
+        input {
+            font-family: 'Ubuntu', sans-serif;
+            display: block;
+            margin: 10px;
+            padding: 5px;
+            border: none;
+            font-size: 22px;
+            outline: 0;
+            width: 100%;
+        }
+        input:hover{
+            font-size: 20px;
+            transition-delay:40ms;
+        }
+    </style>
     <br>
     <div class="box">
         <h1 class="title is-1" style="text-align: center; color: #d1433e;">Login</h1>
         <hr>
+        {%for i in msg%}
+        <article class="message is-danger">
+            <div class="message-body">
+              <strong>{{i}}</strong>
+            </div>
+          </article>
+        {%endfor%}
         <form method="post">
             {%csrf_token%}
-            <input name="username" placeholder="Username" class="input is-danger">
-            <br><br>
-            <input name="password" placeholder="Username" type="password" class="input is-danger">
-            <br><br>
+            <input name="username" placeholder="Username">
+            <hr>
+            <input name="password" placeholder="password" type="password">
+            <hr>
+            <br>
             <button type="submit" class="button is-info">Login</button>
+            
         </form>
         <a href="{%url 'signup'%}">Create a new account</a>
     </div>

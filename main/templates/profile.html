@@ -1,20 +1,17 @@
 {%extends "base.html"%}
 
 {%block content%}
-<div class="box">
+<div class="box" style="width:20%; margin: auto; height: fit-content;">
     {%if pic|length == 0%}
-    <figure class="image is-128x128">
+    <figure class="image is-128x128" style="margin: auto;">
       <img src="https://static8.depositphotos.com/1009634/1025/v/950/depositphotos_10255806-stock-illustration-no-user-profile-picture.jpg">
     </figure>
     {%endif%}
     {%for j in pic%}
-    <figure class="image is-128x128">
+    <figure class="image is-128x128" style="margin: auto;">
       <img src="{{j.pic}}">
     </figure>
     {%endfor%}
-<button class="button is-rounded">Edit</button>
-
-<br>
 <h1 class="title is-2" style="text-align: center; color: #000000;">@{{user}}{%if User in all_ver|safe%}
     
   <svg style="color:#d1433e;" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
@@ -23,10 +20,13 @@
   
 </h1>
 {%endif%}
-<h1 class="title" style="text-align: center;">Posts {{all_post|length}}</h1>
+<hr>
+<br>
+<h1 class="title" style="text-align: center;">Posts {{get_post|length}}</h1>
 </div>
-  {%for i in all_post%}
-  <div class="box">
+<br>
+    {%for i in get_post%}
+  <div class="box" style="width: 60%; margin: auto;">
       <article class="media">
         <div class="media-left">
           <figure class="image is-64x64">
@@ -71,5 +71,6 @@
       </article>
     </div>
   </div>
+  <br>
   {%endfor%}
 {%endblock%}

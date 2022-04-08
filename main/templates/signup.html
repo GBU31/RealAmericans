@@ -10,6 +10,26 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <title>Create a new account</title>
 </head>
+<style>
+    .box {
+            width: fit-content;
+            margin: auto;
+        }
+        input {
+            font-family: 'Ubuntu', sans-serif;
+            display: block;
+            margin: 10px;
+            padding: 5px;
+            border: none;
+            font-size: 22px;
+            outline: 0;
+            width: 100%;
+        }
+        input:hover{
+            font-size: 20px;
+            transition-delay:40ms;
+        }
+</style>
 <body>
     <br>
     <div class="box">
@@ -17,12 +37,13 @@
         <hr>
         <form method="post">
             {%csrf_token%}
-        <input name="username" placeholder="Username" class="input is-danger">
-        <br><br>
-        <input name="password1" placeholder="password" class="input is-danger">
-        <br><br>
-        <input name="password2" placeholder="Repeat your password" class="input is-danger">
-        <br><br>
+        <input name="username" placeholder="Username">
+        <hr>
+        <input name="password1" placeholder="password" type="password">
+        <hr>
+        <input name="password2" placeholder="Repeat your password" type="password">
+        <hr>
+        <br>
         <button type="submit" class="button is-info">Create</button>
         </form>
         <a href="{%url 'login'%}">Login</a>
