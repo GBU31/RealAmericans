@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(post)
 admin.site.register(ver)
 admin.site.register(profilePic)
+admin.site.register(comment)
