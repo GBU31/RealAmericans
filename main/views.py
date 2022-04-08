@@ -9,11 +9,20 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/login')
 def get_post(request, pk):
+    form = CommentForm()
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            form2 = form.save(commit=False)
+            form2.user = request.user
+            form2.to_pk = pk
+            form2.save()
+            
     get_post = post.objects.filter(pk=pk)
     comments = comment.objects.filter(to_pk=pk)
     all_ver = ver.objects.all()
     pic = profilePic.objects.all()
-    return render(request, 'post.html', {'post':get_post, 'comments':comments, 'pic':pic,'all_ver':all_ver, 'User':str(request.user), })
+    return render(request, 'post.html', {'post':get_post, 'form':form,'comments':comments, 'pic':pic,'all_ver':all_ver, 'User':str(request.user), })
 
 
 def Logout(request):
