@@ -13,4 +13,13 @@ class PostForm(forms.ModelForm):
             'user': (''),
             'Content': (''),
         }
-        
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = comment
+        fields = '__all__'
+        widgets = {
+            'Comment': forms.Textarea(attrs={'class':'post', "style":"height:100px;"}),
+        }
+
+
+    
