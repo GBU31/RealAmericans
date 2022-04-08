@@ -7,7 +7,13 @@ class profilePic(models.Model):
     def __str__(self):
         return self.user
 
-
+class comment(models.Model):
+    to_pk = models.BigIntegerField()
+    user = models.CharField(max_length=100, blank=True)
+    Comment = models.CharField(max_length=100)
+    date = models.DateTimeField(auto_now_add=True, blank=True)
+    def __str__(self) -> str:
+        return self.Comment
 
 class post(models.Model):
     user = models.CharField(max_length=100, blank=True)
