@@ -8,7 +8,7 @@ class profilePic(models.Model):
         return self.user
 
 class comment(models.Model):
-    to_pk = models.BigIntegerField()
+    to_pk = models.BigIntegerField(blank=True)
     user = models.CharField(max_length=100, blank=True)
     Comment = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now_add=True, blank=True)
