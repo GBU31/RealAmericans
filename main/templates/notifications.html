@@ -1,0 +1,4 @@
+{%for i in mentions%}
+someone mentioned you <a href="{%url 'get_post' i.to_pk%}">go</a>{{i.user}}
+<br>
+{%endfor%}
