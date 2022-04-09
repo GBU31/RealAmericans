@@ -7,6 +7,24 @@ class profilePic(models.Model):
     def __str__(self):
         return self.user
 
+
+class notificationsmMention(models.Model):
+    myuser = models.CharField(max_length=100, blank=True)
+    user = models.CharField(max_length=100)
+    to_pk = models.CharField(max_length=100)
+    class Meta:
+        ordering = ['-id']
+
+
+class notificationsmLike(models.Model):
+    myuser = models.CharField(max_length=100)
+    user = models.CharField(max_length=100)
+    to_pk = models.CharField(max_length=100)
+    class Meta:
+        ordering = ['-id']
+
+
+
 class comment(models.Model):
     to_pk = models.BigIntegerField(blank=True)
     user = models.CharField(max_length=100, blank=True)
@@ -23,7 +41,7 @@ class post(models.Model):
     date = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self) -> str:
-        return f'{self.Content[:len(self.Content)//2]}... {self.user}'
+        return f'{self.Content}'
 
     class Meta:
         ordering = ['-id']
