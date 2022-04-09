@@ -23,7 +23,7 @@
  {%endif%} 
 {%for i in mentions%}
     <div class="notification is-info is-light">
-        <a href="{%url 'get_post' i.to_pk%}"><strong>@{{i.user}} mentioned you</strong><br><small>{{i.date}}</small></a>
+        <a href="{%url 'get_post' i.to_pk%}"><strong>@{{i.user}} mentioned you</strong><br><small>{{i.date|slice:":11"}}</small></a>
     </div>
 
 {%endfor%}

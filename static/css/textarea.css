@@ -1,8 +1,3 @@
-/*
-Basic input element using psuedo classes
-*/
-
-
 .post {
     font-family: 'Ubuntu', sans-serif;
     display: block;
@@ -13,3 +8,9 @@ Basic input element using psuedo classes
     outline: 0;
     width: 100%;
   }
+
+.post:hover {
+  font-size: 20px;
+  transition-delay:40ms;
+
+}
