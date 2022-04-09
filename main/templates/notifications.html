@@ -1,4 +1,31 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<style>
+    .notification {
+        margin: auto;
+        max-width: 50%;
+    }
+    .box {
+        margin: auto;
+        width: 450px;
+    }
+</style>
+<div class="box">
+    <h1 class="title is-1" style="text-align: center; color: #d1433e;"> Mentions</h1>
+  <hr>
+ {%if mentions|length == 0%}
+ <br>
+ <h1>
+     what a loser
+ </h1>
+ {%endif%} 
 {%for i in mentions%}
-someone mentioned you <a href="{%url 'get_post' i.to_pk%}">go</a>{{i.user}}
-<br>
+    <div class="notification is-info is-light">
+        <a href="{%url 'get_post' i.to_pk%}"><strong>@{{i.user}} mentioned you</strong><br><small>{{i.date}}</small></a>
+    </div>
+
 {%endfor%}
+</div>
+{%endblock%}
