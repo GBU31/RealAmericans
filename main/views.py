@@ -12,11 +12,10 @@ def notifications(request):
     notificationsmMention.objects.all().delete()
     def find(user,all):
         for i in all:
-            print(i)
             if f'@{user}' in str(i):
-                
-                notificationsmMention.objects.create(myuser=request.user, user=i.user, to_pk=i.pk)
+                notificationsmMention.objects.create(myuser=request.user, user=i.user, to_pk=i.pk, date=i.date)
     
+
     find(request.user, post.objects.all())
     find(request.user, comment.objects.all())
     return render(request, 'notifications.html', {'mentions':notificationsmMention.objects.filter(myuser=str(request.user))})
