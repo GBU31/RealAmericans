@@ -7,13 +7,19 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 
+
+
+
 @login_required(login_url='/login')
 def notifications(request):
+    
     notificationsmMention.objects.all().delete()
+
     def findPost(user,all):
         for i in all:
             if f'@{user}' in str(i):
                 notificationsmMention.objects.create(myuser=user, user=i.user, to_pk=i.pk, date=i.date)
+
     def findComment(user,all):
         for i in all:
             if f'@{user}' in str(i):
