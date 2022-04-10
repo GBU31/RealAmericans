@@ -3,7 +3,7 @@ from django.db import models
 
 class profilePic(models.Model):
     user = models.CharField(max_length=100)
-    pic = models.CharField(max_length=500)
+    pic = models.CharField(max_length=100)
     def __str__(self):
         return self.user
 
