@@ -80,7 +80,7 @@ def home(request):
             form2.user = request.user
             form2.save()
 
-    return render(request, 'home.html', {'post_form':form,'all_post':all_post, 'User':str(request.user), 'pic':pic,'all_ver':all_ver})
+    return render(request, 'home.html', {'mentions':notificationsmMention.objects.filter(myuser=str(request.user)), 'post_form':form,'all_post':all_post, 'User':str(request.user), 'pic':pic,'all_ver':all_ver})
 
 
 @login_required(login_url='/login')

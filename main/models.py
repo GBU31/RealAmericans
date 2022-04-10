@@ -13,6 +13,8 @@ class notificationsmMention(models.Model):
     user = models.CharField(max_length=100)
     to_pk = models.CharField(max_length=100)
     date = models.CharField(max_length=100, blank=True)
+    def __str__(self) -> str:
+        return self.user
     class Meta:
         ordering = ['-id']
 
