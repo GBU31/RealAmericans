@@ -4,7 +4,7 @@ from .models import *
 class pfpForm(forms.ModelForm):
     class Meta:
         model = profilePic
-        fields = '__all__'
+        fields = ['pic']
 
 
 
