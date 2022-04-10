@@ -3,9 +3,8 @@
 {%block content%}
 <div class="box" style="width:20%; margin: auto; height: fit-content;">
     {%if pic|length == 0%}
-    <figure class="image is-128x128" style="margin: auto;">
-      <img src="https://static8.depositphotos.com/1009634/1025/v/950/depositphotos_10255806-stock-illustration-no-user-profile-picture.jpg">
-    </figure>
+    <button class="button is-info is-light">Add pfp</button>
+    <br><br>
     {%endif%}
     {%for j in pic%}
     <figure class="image is-128x128" style="margin: auto;">
@@ -21,7 +20,6 @@
 </h1>
 {%endif%}
 <hr>
-<br>
 <h1 class="title" style="text-align: center;">Posts {{get_post|length}}</h1>
 </div>
 <br>
