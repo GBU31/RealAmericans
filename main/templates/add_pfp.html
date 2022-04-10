@@ -1,16 +1,17 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>add pfp</title>
-</head>
-<body>
-    
+{%extends "base.html"%}
+
+{%load static%}
+
+
+{%block content%}
+<style>
+    @import url('{%static "css/pfp.css"%}');
+</style>
+<div class="box">
     <form method="post">
         {%csrf_token%}
         {{form}}
-        <button type="submit">Add</button>
+        <button type="submit" class="button is-danger">Add</button>
     </form>
-</body>
-</html>
+</div>
+{%endblock%}
