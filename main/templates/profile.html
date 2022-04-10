@@ -3,10 +3,12 @@
 {%block content%}
 <div class="box" style="width:20%; margin: auto; height: fit-content;">
     {%if pic|length == 0%}
-    <button class="button is-info is-light">Add pfp</button>
+    <a href="/pfp"><button class="button is-danger is-rounded">Add pfp</button></a>
+    
     <br><br>
     {%endif%}
     {%for j in pic%}
+    <a href="/pfp"><button class="button is-danger is-rounded">Change your pfp</button></a>
     <figure class="image is-128x128" style="margin: auto;">
       <img src="{{j.pic}}">
     </figure>
