@@ -1,0 +1,18 @@
+.box {
+    width: fit-content;
+    margin: auto;
+}
+input {
+    font-family: 'Ubuntu', sans-serif;
+    display: block;
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    font-size: 22px;
+    outline: 0;
+    width: 100%;
+}
+input:hover{
+    font-size: 20px;
+    transition-delay:40ms;
+}
