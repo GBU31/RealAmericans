@@ -5,6 +5,12 @@ class pfpForm(forms.ModelForm):
     class Meta:
         model = profilePic
         fields = ['pic']
+        widgets = {
+            'pic': forms.TextInput(attrs={'placeholder':"url"}),
+        }
+        labels = {
+            'pic':''
+        }
 
 
 
@@ -16,8 +22,8 @@ class PostForm(forms.ModelForm):
             'Content': forms.Textarea(attrs={'class':'post', 'placeholder':"what's new?", "style":"height:100px;"}),
         }
         labels = {
-            'user': (''),
-            'Content': (''),
+            'user': '',
+            'Content': '',
         }
 class CommentForm(forms.ModelForm):
     class Meta:
@@ -27,9 +33,9 @@ class CommentForm(forms.ModelForm):
             'Comment': forms.Textarea(attrs={'class':'post', "style":"height:100px;"}),
         }
         labels = {
-            'user': (''),
-            'to_pk': (''),
-            'Comment':(''),
+            'user': '',
+            'to_pk': '',
+            'Comment':'',
         }
 
 
