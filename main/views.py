@@ -10,14 +10,17 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url='/login')
 def notifications(request):
     notificationsmMention.objects.all().delete()
-    def find(user,all):
+    def findPost(user,all):
         for i in all:
             if f'@{user}' in str(i):
-                notificationsmMention.objects.create(myuser=request.user, user=i.user, to_pk=i.pk, date=i.date)
+                notificationsmMention.objects.create(myuser=user, user=i.user, to_pk=i.pk, date=i.date)
+    def findComment(user,all):
+        for i in all:
+            if f'@{user}' in str(i):
+                notificationsmMention.objects.create(myuser=user, user=i.user, to_pk=i.to_pk, date=i.date)
     
-
-    find(request.user, post.objects.all())
-    find(request.user, comment.objects.all())
+    findPost(request.user, post.objects.all())
+    findComment(request.user, comment.objects.all())
     return render(request, 'notifications.html', {'mentions':notificationsmMention.objects.filter(myuser=str(request.user))})
 
 @login_required(login_url='/login')
