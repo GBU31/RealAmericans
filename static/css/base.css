@@ -1,5 +1,6 @@
 body {
   background-color: #f3f3f3;
+  font-size: 42px;
 }
 
 img {
@@ -11,14 +12,15 @@ img {
   display: block;
   margin: 10px;
   padding: 5px;
+  font-size: 42px;
   border: none;
-  font-size: 22px;
+  
   outline: 0;
   width: 100%;
 }
 
 .post:hover {
-font-size: 20px;
+font-size: 40px;
 transition-delay:40ms;
 
 }

@@ -14,7 +14,6 @@
         </style>
     </head>
         <body>
-          <script src="{%static 'js/mention.js'%}"></script>
           <script src="https://unpkg.com/vue@3"></script>
           <input type="checkbox" id="active">
           <label for="active" class="menu-btn"><span></span></label>
@@ -40,11 +39,10 @@
       </svg></a></li>
       </ul>
       </div>
-      <br>
-      <br>
       {%block content%}
       
       {%endblock%}
+      <script src="{%static 'js/mention.js'%}"></script>
       
       
       

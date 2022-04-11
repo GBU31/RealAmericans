@@ -1,7 +1,6 @@
 .box.comment {
     width: 60%; 
     position: fixed;
-    bottom: 0;
-    right: 0;
+    margin: auto;
 
 }
