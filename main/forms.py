@@ -19,7 +19,7 @@ class PostForm(forms.ModelForm):
         model = post
         fields = ['Content']
         widgets = {
-            'Content': forms.TextInput(attrs={'class':'post', 'placeholder':"what's new?", "style":"height:100px;"}),
+            'Content': forms.Textarea(attrs={'class':'post', 'placeholder':"what's new?", "style":"height:100px;"}),
         }
         labels = {
             'user': '',
@@ -30,7 +30,7 @@ class CommentForm(forms.ModelForm):
         model = comment
         fields = ['Content']
         widgets = {
-            'Content': forms.TextInput(attrs={'class':'post', "style":"height:100px;"}),
+            'Content': forms.Textarea(attrs={'class':'post', "style":"height:100px;"}),
         }
         labels = {
             'user': '',
