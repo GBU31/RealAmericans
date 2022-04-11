@@ -28,14 +28,14 @@ class PostForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = comment
-        fields = ['Comment']
+        fields = ['Content']
         widgets = {
-            'Comment': forms.Textarea(attrs={'class':'post', "style":"height:100px;"}),
+            'Content': forms.Textarea(attrs={'class':'post', "style":"height:100px;"}),
         }
         labels = {
             'user': '',
             'to_pk': '',
-            'Comment':'',
+            'Content':'',
         }
 
 
