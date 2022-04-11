@@ -1,8 +1,7 @@
 {%extends "base.html"%}
 
 {%block content%}
-<br>
-<div class="box" style="width: 800px; margin: auto;">
+<div class="box" style="width: 80%; margin: auto;">
   <h1 class="title is-1" style="text-align: center; color: #d1433e;"> Home</h1>
   <hr>
   <br>
@@ -10,7 +9,7 @@
   <form method="post">
     {%csrf_token%}
     {{post_form}}
-    <button type="submit" class="input button is-info ">Post</button>
+    <button type="submit" class="input button is-info is-large">Post</button>
   </form>
   <br>
     {%for i in all_post%}

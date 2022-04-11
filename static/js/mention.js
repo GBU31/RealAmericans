@@ -1,3 +1,4 @@
 function mentionbtn(user) {
-    document.getElementById('id_Content').innerText = "@"+user
+    document.getElementById('id_Content').innerHTML = "@"+user
+    alert(user)
 }

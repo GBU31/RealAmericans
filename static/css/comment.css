@@ -1,6 +1,8 @@
 .box.comment {
-    width: 60%; 
+    width: 100%;
     position: fixed;
+    top: 84%;
     margin: auto;
+    right: 0;
 
 }
