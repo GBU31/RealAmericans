@@ -9,5 +9,6 @@ urlpatterns = [
     path('post/<int:pk>', views.get_post, name='get_post'),
     path('logout', views.Logout),
     path('notifications', views.notifications, name='notifications'),
-    path('pfp', views.add_pfp)
+    path('pfp', views.add_pfp, name='notifications'),
+    path('topic/<int:pk>', views.get_topic, name='get_topic')
 ]

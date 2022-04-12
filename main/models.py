@@ -1,6 +1,11 @@
+from venv import create
 from django.db import models
 
 
+
+class topic(models.Model):
+    name = models.CharField(max_length=100)
+    
 class profilePic(models.Model):
     user = models.CharField(max_length=100)
     pic = models.CharField(max_length=100)

@@ -80,7 +80,12 @@ def Login(request):
     return render(request, 'login.html')
 
 @login_required(login_url='/login')
+def get_topic(request, pk):
+    return render(request, 'topic.html', {'topic':topic.objects.filter(pk=pk), 'all_post':post.objects.all()})
+
+@login_required(login_url='/login')
 def home(request):
+    topics = topic.objects.all
     all_post = post.objects.all()
     pic = profilePic.objects.all()
     all_ver = ver.objects.all()
@@ -92,7 +97,7 @@ def home(request):
             form2.user = request.user
             form2.save()
 
-    return render(request, 'home.html', {'mentions':notificationsmMention.objects.filter(myuser=str(request.user)), 'post_form':form,'all_post':all_post, 'User':str(request.user), 'pic':pic,'all_ver':all_ver})
+    return render(request, 'home.html', {'topics':topics, 'post_form':form,'all_post':all_post, 'User':str(request.user), 'pic':pic,'all_ver':all_ver})
 
 @login_required(login_url='/login')
 def profile(request):

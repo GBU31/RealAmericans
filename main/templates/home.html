@@ -1,6 +1,18 @@
 {%extends "base.html"%}
 
 {%block content%}
+<div class="columns is-mobile">
+  <div class="column is-3">
+    <div class="box" style="position: fixed;">
+      Topics
+      {%for i in topics%}
+      <hr>
+      <a href="{%url 'get_topic' i.pk%}">{{i.name}}</a>
+      {%endfor%}
+    </div>
+  </div>
+  
+  <div class="column is-7">
 <div class="box" style="width: 100%; margin: auto;">
   <h1 class="title is-1" style="text-align: center; color: #d1433e;"> Home</h1>
   <hr>
@@ -9,10 +21,12 @@
   <form method="post">
     {%csrf_token%}
     {{post_form}}
-    <button type="submit" id='id_post_btn'class="input button is-info ">Post</button>
+    <hr>
+    <button type="submit" id='id_post_btn'class="input button is-info" style="width: 10%; left: 80%;">Post</button>
   </form>
   <br>
     {%for i in all_post%}
+    <hr>
         <article class="media">
           <div class="media-left">
             <figure class="image is-64x64">
@@ -60,4 +74,6 @@
       
     {%endfor%}
   </div>
+</div>
+</div>
 {%endblock%}
