@@ -14,14 +14,13 @@
   
   <div class="column is-7">
 <div class="box" style="width: 100%; margin: auto;">
-  <a href="/profile">{{user}}</a>
+  <a href="/profile">@{{user}}</a>
   <h1 class="title is-1" style="text-align: center; color: #d1433e;"> Home</h1>
-  
+  <hr>
 <br>
   <form method="post">
     {%csrf_token%}
     {{post_form}}
-    <hr>
     <button type="submit" id='id_post_btn'class="input button is-info is-large" style="width: 20%; left: 80%;">Post</button>
   </form>
   <br>
