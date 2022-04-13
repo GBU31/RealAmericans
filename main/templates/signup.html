@@ -16,18 +16,26 @@
             width: fit-content;
             margin: auto;
         }
+        .box.user {
+            margin-left:200px;
+            width: fit-content;
+            border-radius: 50%;
+        }
     </style>
+    {%if user.is_authenticated%}
+    <a href="{%url 'home'%}"><div class="box user">@{{user}}</div></a>
+    {%endif%}
     <br>
     <div class="box">
         <h1 class="title is-1" style="text-align: center; color: #d1433e;">Create a new account</h1>
         <hr>
         <form method="post">
         {%csrf_token%}
-        <input name="username" class="input is-info" placeholder="Username">
+        <input name="username" class="input" placeholder="Username">
         <br><br>
         <input name="password1" class="input is-info" placeholder="password" type="password">
         <br><br>
-        <input name="password2" class="input is-info" placeholder="Repeat your password" type="password">
+        <input name="password2" class="input is-danger" placeholder="Repeat your password" type="password">
         <br><br>
         <button type="submit" class="button is-info">Create</button>
         <hr>
