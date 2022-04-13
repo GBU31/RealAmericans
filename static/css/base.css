@@ -1,11 +1,11 @@
 body {
   background-color: #f3f3f3;
-  font-size: 20px;
+  font-size: 34;
 }
 
 svg{
-  width: 30;
-  height: 30;
+  width: 40;
+  height: 40;
 }
 
 
@@ -19,12 +19,13 @@ img {
   margin: 10px;
   padding: 5px;
   border: none;
+  font-size: 34;
   outline: 0;
   width: 100%;
 }
 
 .post:hover {
-font-size: 30px;
-transition-delay:40ms;
+  font-size: 30px;
+  transition-delay:40ms;
 
 }
