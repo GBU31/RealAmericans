@@ -11,20 +11,26 @@
     <title>Create a new account</title>
 </head>
 <body>
+    <style>
+        .box {
+            width: fit-content;
+            margin: auto;
+        }
+    </style>
     <br>
     <div class="box">
         <h1 class="title is-1" style="text-align: center; color: #d1433e;">Create a new account</h1>
         <hr>
         <form method="post">
         {%csrf_token%}
-        <input name="username" placeholder="Username">
-        <hr>
-        <input name="password1" placeholder="password" type="password">
-        <hr>
-        <input name="password2" placeholder="Repeat your password" type="password">
-        <hr>
-        <br>
+        <input name="username" class="input is-info" placeholder="Username">
+        <br><br>
+        <input name="password1" class="input is-info" placeholder="password" type="password">
+        <br><br>
+        <input name="password2" class="input is-info" placeholder="Repeat your password" type="password">
+        <br><br>
         <button type="submit" class="button is-info">Create</button>
+        <hr>
         </form>
         <a href="{%url 'login'%}">Login</a>
     </div>
