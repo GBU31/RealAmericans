@@ -9,7 +9,7 @@
 </head>
 <body>
     {%if user.is_authenticated%}
-    <a href="{%url 'home'%}"><div class="box user">{{user}}</div></a>
+    <a href="{%url 'home'%}"><div class="box user">@{{user}}</div></a>
     {%endif%}
 
     <style>
@@ -20,7 +20,7 @@
         .box.user {
             margin-left:200px;
             width: fit-content;
-
+            border-radius: 50%;
         }
     </style>
 
@@ -39,7 +39,7 @@
             {%csrf_token%}
             <input name="username" class="input is-info" placeholder="Username">
             <br><br>
-            <input name="password" class="input is-info" placeholder="password" type="password">
+            <input name="password" class="input is-danger" placeholder="password" type="password">
             <br><br>
             <button type="submit" class="button is-info">Login</button>
             <hr>
