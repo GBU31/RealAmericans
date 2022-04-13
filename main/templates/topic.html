@@ -1,9 +1,19 @@
 {%extends 'base.html'%}
 
+
 {%block content%}
+
+
+{%for t in topic%}
+
+<h1 class="title is-1" style="text-align: center; color: #d1433e;"> {{t}}</h1>
+{%endfor%}
+
+
 {%for i in all_post%}
 {%for j in topic%}
 {%if j.name in i.Content%}
+
 <div class="box" style="margin: auto;">
     <article class="media">
       <div class="media-left">
@@ -43,4 +53,5 @@
 {%endif%}
 {%endfor%}
 {%endfor%}
+</div>
 {%endblock%}

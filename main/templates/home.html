@@ -3,30 +3,29 @@
 {%block content%}
 <div class="columns is-mobile">
   <div class="column is-3">
-    <div class="box" style="position: fixed;">
+    <div class="box" style="position: fixed; width: 15%;">
       Topics
       {%for i in topics%}
       <hr>
-      <a href="{%url 'get_topic' i.pk%}">{{i.name}}</a>
+      <a href="{%url 'get_topic' i.pk %}">{{i.name}}</a>
       {%endfor%}
     </div>
   </div>
   
   <div class="column is-7">
 <div class="box" style="width: 100%; margin: auto;">
-  <h1 class="title is-1" style="text-align: center; color: #d1433e;"> Home</h1>
-  <hr>
-  <br>
   {{user}}
+  <h1 class="title is-1" style="text-align: center; color: #d1433e;"> Home</h1>
+  
+<br>
   <form method="post">
     {%csrf_token%}
     {{post_form}}
     <hr>
-    <button type="submit" id='id_post_btn'class="input button is-info" style="width: 10%; left: 80%;">Post</button>
+    <button type="submit" id='id_post_btn'class="input button is-info is-large" style="width: 20%; left: 80%;">Post</button>
   </form>
   <br>
     {%for i in all_post%}
-    <hr>
         <article class="media">
           <div class="media-left">
             <figure class="image is-64x64">
