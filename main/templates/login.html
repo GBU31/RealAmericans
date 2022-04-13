@@ -14,20 +14,6 @@
             width: fit-content;
             margin: auto;
         }
-        input {
-            font-family: 'Ubuntu', sans-serif;
-            display: block;
-            margin: 10px;
-            padding: 5px;
-            border: none;
-            font-size: 22px;
-            outline: 0;
-            width: 100%;
-        }
-        input:hover{
-            font-size: 20px;
-            transition-delay:40ms;
-        }
     </style>
     <br>
     <div class="box">
@@ -42,12 +28,12 @@
         {%endfor%}
         <form method="post">
             {%csrf_token%}
-            <input name="username" placeholder="Username">
-            <hr>
-            <input name="password" placeholder="password" type="password">
-            <hr>
-            <br>
+            <input name="username" class="input is-info" placeholder="Username">
+            <br><br>
+            <input name="password" class="input is-info" placeholder="password" type="password">
+            <br><br>
             <button type="submit" class="button is-info">Login</button>
+            <hr>
             
         </form>
         <a href="{%url 'signup'%}">Create a new account</a>
