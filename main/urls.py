@@ -10,5 +10,6 @@ urlpatterns = [
     path('logout', views.Logout),
     path('notifications', views.notifications, name='notifications'),
     path('pfp', views.add_pfp, name='notifications'),
-    path('topic/<int:pk>', views.get_topic, name='get_topic')
+    path('topic/<int:pk>', views.get_topic, name='get_topic'),
+    
 ]

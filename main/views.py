@@ -1,10 +1,12 @@
-from django.shortcuts import redirect, render
+from django.http import HttpResponseRedirect
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import *
 from .forms import *
 from django .contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+
 
 @login_required(login_url='/login')
 def add_pfp(request):
@@ -105,3 +107,4 @@ def profile(request):
     all_ver = ver.objects.all()
     pic = profilePic.objects.filter(user=str(request.user))
     return render(request, 'profile.html', {'get_post':get_post,'User':str(request.user), 'pic':pic,'all_ver':all_ver})
+
