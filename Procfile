@@ -1,2 +1,2 @@
-release: python manage.py migrate
 web: gunicorn RealAmericans.wsgi
+python manage.py migrate
