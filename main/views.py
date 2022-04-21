@@ -83,7 +83,7 @@ def Login(request):
 
 @login_required(login_url='/login')
 def get_topic(request, pk):
-    return render(request, 'topic.html', {'topic':topic.objects.filter(pk=pk), 'all_post':post.objects.all()})
+    return render(request, 'topic.html', {'topic':topic.objects.filter(pk=pk), 'all_post':post.objects.all(), 'pic':profilePic.objects.all()})
 
 @login_required(login_url='/login')
 def home(request):
