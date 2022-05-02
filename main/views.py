@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
-
+# view allows you to add profile pic
 @login_required(login_url='/login')
 def add_pfp(request):
     form = pfpForm()
@@ -25,11 +25,13 @@ def add_pfp(request):
 @login_required(login_url='/login')
 def notifications(request):
     notificationsmMention.objects.all().delete()
+    # find @user in post
     def findPost(user,all):
         for i in all:
             if f'@{user}' in str(i):
                 notificationsmMention.objects.create(myuser=user, user=i.user, to_pk=i.pk, date=i.date)
-
+                
+    # find @user in comment
     def findComment(user,all):
         for i in all:
             if f'@{user}' in str(i):
@@ -70,6 +72,7 @@ def signup(request):
     return render(request, 'signup.html', {'form':form})
 
 def Login(request):
+    pic = profilePic.objects.filter(user=str(request.user))
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
@@ -78,8 +81,8 @@ def Login(request):
             login(request, user)
             return redirect('home')
         else:
-            return render(request, 'login.html', {'msg':['your username or password is incorrect']})
-    return render(request, 'login.html')
+            return render(request, 'login.html', {'msg':['your username or password is incorrect'], 'pic':pic})
+    return render(request, 'login.html', {'pic':pic})
 
 @login_required(login_url='/login')
 def get_topic(request, pk):
