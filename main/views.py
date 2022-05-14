@@ -56,7 +56,11 @@ def get_post(request, pk):
     comments = comment.objects.filter(to_pk=pk)
     all_ver = ver.objects.all()
     pic = profilePic.objects.all()
-    return render(request, 'post.html', {'post':get_post, 'form':form,'comments':comments, 'pic':pic,'all_ver':all_ver, 'User':str(request.user), })
+    c = 0
+    for i in clicked.objects.filter(to_pk=pk):
+        c = int(i.click)
+    clicks = clicked.objects.create(to_pk = pk, click=c+1)
+    return render(request, 'post.html', {'clicks':clicks,'post':get_post, 'form':form,'comments':comments, 'pic':pic,'all_ver':all_ver, 'User':str(request.user), })
 
 def Logout(request):
     logout(request)
