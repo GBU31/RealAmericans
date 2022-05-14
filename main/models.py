@@ -14,6 +14,13 @@ class profilePic(models.Model):
     def __str__(self):
         return self.user
 
+class clicked(models.Model):
+    to_pk = models.CharField(max_length=100)
+    click = models.IntegerField()
+    date = models.CharField(max_length=100, blank=True)
+
+
+
 
 class notificationsmMention(models.Model):
     myuser = models.CharField(max_length=100, blank=True)
